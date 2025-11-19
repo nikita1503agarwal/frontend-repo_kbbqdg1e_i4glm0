@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Careers — NovaTech</title>
+  <link rel="icon" href="/favicon.svg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/css/custom.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/js/config.js"></script>
+  <script src="/js/gsap-setup.js"></script>
+  <script src="/js/common.js" defer></script>
+</head>
+<body class="bg-[#0b0b10] text-zinc-100">
+  <header class="fixed top-0 inset-x-0 z-40 nav-backdrop">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/home.html" class="text-xl font-semibold tracking-tight">NovaTech</a>
+      <button data-nav-toggle class="md:hidden px-3 py-2 rounded glow">Menu</button>
+      <nav data-nav class="hidden md:flex gap-6 items-center">
+        <a href="/home.html">Home</a>
+        <a href="/services.html">Services</a>
+        <a href="/about.html">About</a>
+        <a href="/news.html">News</a>
+        <a href="/careers.html">Careers</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="pt-32">
+    <section class="max-w-6xl mx-auto px-6">
+      <h1 class="text-5xl font-extrabold reveal">Join the studio</h1>
+      <p class="mt-4 text-zinc-300 reveal">We hire for taste, empathy, and craft. Explore roles below.</p>
+
+      <div class="mt-12 grid md:grid-cols-3 gap-8">
+        <div class="reveal p-6 rounded-2xl border border-zinc-800/60">
+          <div class="text-zinc-400 text-sm">Design</div>
+          <div class="text-2xl font-semibold mt-1">Senior Product Designer</div>
+        </div>
+        <div class="reveal p-6 rounded-2xl border border-zinc-800/60">
+          <div class="text-zinc-400 text-sm">Engineering</div>
+          <div class="text-2xl font-semibold mt-1">Frontend Engineer (GSAP)</div>
+        </div>
+        <div class="reveal p-6 rounded-2xl border border-zinc-800/60">
+          <div class="text-zinc-400 text-sm">AI</div>
+          <div class="text-2xl font-semibold mt-1">AI Product Engineer</div>
+        </div>
+      </div>
+
+      <div class="mt-16 p-8 rounded-2xl bg-gradient-to-br from-violet-600/10 to-blue-500/10 border border-zinc-800/60 reveal">
+        <h2 class="text-3xl font-semibold">Apply now</h2>
+        <p class="text-zinc-400 mt-2">Your application and resume will be saved to Supabase securely.</p>
+        <form id="applyForm" class="mt-8 grid md:grid-cols-2 gap-6">
+          <div>
+            <label class="block text-zinc-400 mb-2">Full name</label>
+            <input name="name" required class="w-full bg-zinc-900/60 border border-zinc-800 rounded-xl px-4 py-3 focus:outline-none focus:border-violet-500" placeholder="Jane Doe"/>
+          </div>
+          <div>
+            <label class="block text-zinc-400 mb-2">Email</label>
+            <input name="email" type="email" required class="w-full bg-zinc-900/60 border border-zinc-800 rounded-xl px-4 py-3 focus:outline-none focus:border-violet-500" placeholder="jane@company.com"/>
+          </div>
+          <div>
+            <label class="block text-zinc-400 mb-2">Role</label>
+            <select name="role" required class="w-full bg-zinc-900/60 border border-zinc-800 rounded-xl px-4 py-3 focus:outline-none focus:border-violet-500">
+              <option value="Senior Product Designer">Senior Product Designer</option>
+              <option value="Frontend Engineer (GSAP)">Frontend Engineer (GSAP)</option>
+              <option value="AI Product Engineer">AI Product Engineer</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-zinc-400 mb-2">Resume (PDF)</label>
+            <input id="resumeFile" name="resume_file" type="file" accept="application/pdf" required class="w-full bg-zinc-900/60 border border-zinc-800 rounded-xl px-4 py-3 focus:outline-none focus:border-violet-500" />
+          </div>
+          <div class="md:col-span-2">
+            <label class="block text-zinc-400 mb-2">Notes</label>
+            <textarea name="notes" rows="5" class="w-full bg-zinc-900/60 border border-zinc-800 rounded-xl px-4 py-3 focus:outline-none focus:border-violet-500" placeholder="Links to work, availability, etc."></textarea>
+          </div>
+          <div class="md:col-span-2 flex items-center gap-4">
+            <button class="px-6 py-3 rounded-full bg-violet-600 hover:bg-violet-500 transition glow" data-magnetic>Submit Application</button>
+            <div id="applyStatus" class="text-zinc-400"></div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-zinc-800/60 mt-16">
+    <div class="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-4 gap-8 text-zinc-400">
+      <div>
+        <div class="text-white text-xl font-semibold">NovaTech</div>
+        <p class="mt-3">Cinematic software studio.</p>
+      </div>
+      <div>
+        <div class="text-white font-semibold">Company</div>
+        <ul class="mt-3 space-y-2">
+          <li><a href="/about.html" class="hover:text-white">About</a></li>
+          <li><a href="/careers.html" class="hover:text-white">Careers</a></li>
+          <li><a href="/news.html" class="hover:text-white">News</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="text-white font-semibold">Work</div>
+        <ul class="mt-3 space-y-2">
+          <li><a href="/services.html" class="hover:text-white">Services</a></li>
+          <li><a href="/home.html#work" class="hover:text-white">Case Studies</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="text-white font-semibold">Contact</div>
+        <ul class="mt-3 space-y-2">
+          <li><a href="mailto:hello@novatech.studio" class="hover:text-white">hello@novatech.studio</a></li>
+          <li><a href="/contact.html" class="hover:text-white">Contact Form</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="text-center text-zinc-500 pb-10">© <span id="y"></span> NovaTech Studio.</div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    window.addEventListener('load', () => {
+      if (window.initReveal) initReveal();
+      if (window.initMagnetic) initMagnetic();
+
+      const form = document.getElementById('applyForm');
+      const statusEl = document.getElementById('applyStatus');
+      const fileInput = document.getElementById('resumeFile');
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        statusEl.textContent = 'Uploading resume…';
+        try {
+          const { createClient } = window.supabase;
+          const supabase = createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
+          const file = fileInput.files[0];
+          if (!file) throw new Error('Please attach a PDF resume.');
+          const filename = `${Date.now()}_${file.name}`.replace(/\s+/g, '_');
+
+          // Ensure a bucket named 'resumes' exists in your Supabase project and is public (or use signed URLs)
+          const { error: uploadError } = await supabase.storage.from('resumes').upload(filename, file, { contentType: file.type, upsert: false });
+          if (uploadError) throw uploadError;
+
+          // Get a public URL to store alongside application
+          const { data: pub } = supabase.storage.from('resumes').getPublicUrl(filename);
+          const resume_url = pub?.publicUrl || '';
+
+          statusEl.textContent = 'Saving application…';
+          const data = Object.fromEntries(new FormData(form).entries());
+          const payload = { ...data, resume_url, created_at: new Date().toISOString() };
+          const { error: insertError } = await supabase.from('applications').insert([payload]);
+          if (insertError) throw insertError;
+
+          statusEl.textContent = 'Application submitted. Thank you!';
+          form.reset();
+        } catch (err) {
+          console.error(err);
+          statusEl.textContent = 'Error submitting. Check console and config.js.';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

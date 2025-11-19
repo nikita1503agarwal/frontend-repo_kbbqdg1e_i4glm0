@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Launch: Orbit Analytics 2.0 — NovaTech</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/css/custom.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="/js/gsap-setup.js"></script>
+  <script src="/js/common.js" defer></script>
+</head>
+<body class="bg-[#0b0b10] text-zinc-100">
+  <header class="fixed top-0 inset-x-0 z-40 nav-backdrop">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/home.html" class="text-xl font-semibold tracking-tight">NovaTech</a>
+      <button data-nav-toggle class="md:hidden px-3 py-2 rounded glow">Menu</button>
+      <nav data-nav class="hidden md:flex gap-6 items-center">
+        <a href="/home.html">Home</a>
+        <a href="/news.html">News</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="pt-32 max-w-3xl mx-auto px-6">
+    <h1 class="text-4xl md:text-5xl font-extrabold reveal">Introducing Orbit Analytics 2.0</h1>
+    <p class="text-zinc-300 mt-4 reveal">A complete reimagining with real-time streaming, cinematic charts, and blazing performance.</p>
+    <div class="mt-8 space-y-6 reveal">
+      <p>We partnered with enterprise teams to push large-scale analytics forward. GSAP-driven transitions make complex interactions feel effortless.</p>
+      <p>Version 2.0 ships with GPU-backed rendering, a new design language, and an extensible plugin system.</p>
+      <p>Read more on our process and decisions below.</p>
+      <img class="rounded-2xl glow" src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1600&auto=format&fit=crop"/>
+    </div>
+  </main>
+
+  <footer class="border-t border-zinc-800/60 mt-16">
+    <div class="max-w-7xl mx-auto px-6 py-16 text-zinc-400">
+      <a href="/news.html" class="hover:text-white">← Back to all news</a>
+    </div>
+  </footer>
+
+  <script>window.addEventListener('load', () => { if (window.initReveal) initReveal(); });</script>
+</body>
+</html>
